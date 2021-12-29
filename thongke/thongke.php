@@ -7,13 +7,13 @@
                     <header class="panel-heading">
                         Danh sách sinh viên <?php echo $text ?>
                     </header>
-                   
+
                     <div class="panel-body">
                         <form action="index.php?page=1" method="post">
                             <div class="input-group m-bot15">
                                 <select name="action" class="form-control" style="width: 300px" id="source">
-                                            <option  value="danop">Đã nộp</option>
-                                            <option value="chuanop">Chưa nộp</option>
+                                    <option  value="danop">Đã nộp</option>
+                                    <option value="chuanop" <?php echo $select ?> >Chưa nộp</option>
                                 </select>
                                 <button type="submit" class="btn btn-success">Thực hiện</button>
                             </div>
@@ -36,12 +36,12 @@
                                             <td><?php echo $i ?></td>
                                             <td><?php echo $sv['masv']; ?></td>
                                             <td>
-                                                <a href="?action=view_sv&amp;findid=<?php echo $sv['idsv']; ?>">
+                                                <a href="../tracuusinhvien/index.php?action=view_sv&amp;findid=<?php echo $sv['idsv']; ?>">
                                                     <?php echo htmlspecialchars($sv['tensv']); ?>
                                                 </a>
                                             </td>
                                             <td><?php echo $sv['lopSH']; ?></td>
-                                            <td><?php echo date('d/m/Y',strtotime($sv['ngaysinh'])); ?></td>
+                                            <td><?php echo date('d/m/Y', strtotime($sv['ngaysinh'])); ?></td>
                                             <?php $i = $i + 1; ?>
                                         </tr>
                                     <?php endforeach; ?>

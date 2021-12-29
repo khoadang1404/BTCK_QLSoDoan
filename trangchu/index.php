@@ -20,6 +20,8 @@
             </section>
         </div>
         <!--mini statistics start-->
+        
+        
     </section>
 </section>
 <?php include '../footer.php'; ?>

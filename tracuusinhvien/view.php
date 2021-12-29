@@ -9,10 +9,10 @@
                     </header>
                     <div class="panel-body">
                         <div class="btn-group" style="margin-bottom: 10px;float: right">
-                            <a href="tracuu.php?page=1" class="btn btn-danger">
+                            <button onclick="javascript:history.go(-1)" class="btn btn-danger">
                                 <i class="glyphicon glyphicon-retweet"></i>
                                 <span>Quay lại</span>
-                            </a>
+                            </button>
                         </div>
                         <section id="unseen">
                             <table class="table table-bordered table-striped table-condensed">
@@ -23,6 +23,7 @@
                                         <th>Tên sinh viên</th>
                                         <th>Lớp Sinh Hoạt</th>
                                         <th>Ngày sinh</th>
+                                        <th>Trạng thái sổ đoàn</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -31,7 +32,8 @@
                                         <td><?php echo $sv['masv']; ?></td>
                                         <td><?php echo $sv['tensv']; ?></td>
                                         <td><?php echo $sv['lopSH']; ?></td>
-                                        <td><?php echo date('d/m/Y',strtotime($sv['ngaysinh'])); ?></td>
+                                        <td><?php echo date('d-m-Y',strtotime($sv['ngaysinh'])); ?></td>
+                                        <td style="text-align: center"><?php echo result_sodoanById($sv['masv']); ?></td>
                                     </tr>
 
                                 </tbody>

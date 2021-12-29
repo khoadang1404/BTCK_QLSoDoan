@@ -41,6 +41,21 @@ function get_sodoanById($findid) {
     $statement->closeCursor();    
     return $sd;
 }
+function result_sodoanById($findid) {
+    global $db;
+    $query = 'SELECT * FROM sodoan
+              WHERE masv = :findid';    
+    $statement = $db->prepare($query);
+    $statement->bindValue(':findid', $findid);
+    $statement->execute();    
+    $sd = $statement->fetch();
+    $statement->closeCursor();    
+    
+    if($sd != null)
+        return "Đã nộp";
+    else
+        return "Chưa nộp";
+}
 function add_sodoan($masv, $tgnop, $tgrut) {
     global $db;
     $query = 'INSERT INTO sodoan
@@ -74,12 +89,10 @@ function delete_sodoan($sd_id) {
 
 function update_sodoan($id,$masv, $tgnop, $tgrut){
     global $db;
-    $query = '
-        UPDATE sodoan
-        SET masv = :masv,
+    $query = 'UPDATE sodoan SET masv = :masv,
             tgnop = :nop,
-            tgrut = :rut,
-        WHERE idsd = :id';
+            tgrut = :rut
+        WHERE sodoan.idsd = :id';
         $statement = $db->prepare($query);
         $statement->bindValue(':masv', $masv);
         $statement->bindValue(':nop', $tgnop);

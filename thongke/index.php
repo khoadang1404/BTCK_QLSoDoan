@@ -20,18 +20,19 @@ if ($action == NULL) {
     $action = filter_input(INPUT_GET, 'action');
     if ($action == NULL) {
         $action = 'danop';
-        $tongsotin = get_danopCount();
-        echo $sotrang = ceil($tongsotin / $sotin1trang);
+      
     }
 }
 if ($action == 'danop') {
+    $select = '';
     $list_sv = get_danop($batdau,$sotin1trang);
     $tongsotin = get_danopCount();
     $text = 'đã nộp sổ đoàn';
     echo $sotrang = ceil($tongsotin / $sotin1trang);
     include('thongke.php');
-}elseif ($action == 'chuanop') {
-    $list_sv = get_sinhvien($batdau,$sotin1trang);
+}else{
+    $select = 'selected';
+    $list_sv = get_chuanop($batdau,$sotin1trang);
     $tongsotin = get_chuanopCount();
     $text = 'chưa nộp sổ đoàn';
     echo $sotrang = ceil($tongsotin / $sotin1trang);

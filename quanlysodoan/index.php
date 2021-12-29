@@ -43,54 +43,72 @@ switch ($action) {
         $masv = $_POST['masv'];
         $tgnop = $_POST['nop'];
         $tgrut = $_POST['rut'];
-        
+
         $sv = get_sinhvienByMa($masv);
         // Validate inputs
-        if ($masv == null || $tgnop == null) {
-            $error = 'Không được để trống mã sinh viên và ngày nộp!';
-            include ('../errors/error.php');
-        } elseif (strtotime ($tgnop) > strtotime ($tgrut)) {
-            $error = "Ngày rút không được nhỏ hơn ngày nộp";
-            include ('../errors/error.php');
-        } elseif ($sv == null) {
-            $error = "Sinh viên không tông tại!";
-            include ('../errors/error.php');
+        if ($tgrut != null) {
+            if (strtotime($tgnop) > strtotime($tgrut)) {
+                $error = "Ngày rút không được nhỏ hơn ngày nộp";
+                include ('../errors/error.php');
+                return;
+            }
         } else {
-            add_sodoan($masv, $tgnop, $tgrut);
-            $list_sd = get_sodoan($batdau, $sotin1trang);
-            $them = "Thêm thành công";
-            include('danhsach.php');
+            if ($masv == null || $tgnop == null) {
+                $error = 'Không được để trống mã sinh viên và ngày nộp!';
+                include ('../errors/error.php');
+                return;
+            } elseif ($sv == null) {
+                $error = "Sinh viên không tông tại!";
+                include ('../errors/error.php');
+                return;
+            }
         }
+        add_sodoan($masv, $tgnop, $tgrut);
+        $list_sd = get_sodoan($batdau, $sotin1trang);
+        $them = "Thêm thành công";
+        include('danhsach.php');
         break;
     case 'update_sd':
         $idsd = $_POST['idsd'];
         $masv = $_POST['masv'];
         $tgnop = $_POST['nop'];
         $tgrut = $_POST['rut'];
-        
+
+//        
+//        echo $idsd;
+//        echo $masv;
+//        echo $tgnop;
+//        echo $tgrut;
+
+
         $sv = get_sinhvienByMa($masv);
         // Validate inputs
+        if ($tgrut != null) {
+            if (strtotime($tgnop) > strtotime($tgrut)) {
+                $error = "Ngày rút không được nhỏ hơn ngày nộp";
+                include ('../errors/error.php');
+                die();
+            }
+        }
         if ($masv == null || $tgnop == null) {
             $error = 'Không được để trống mã sinh viên và ngày nộp!';
             include ('../errors/error.php');
-        } elseif (strtotime ($tgnop) > strtotime ($tgrut)) {
-            $error = "Ngày rút không được nhỏ hơn ngày nộp";
-            include ('../errors/error.php');
+            die();
         } elseif ($sv == null) {
             $error = "Sinh viên không tông tại!";
             include ('../errors/error.php');
-        } else {
-            update_sodoan($idsd,$masv, $tgnop, $tgrut);
-            $list_sd = get_sodoan($batdau, $sotin1trang);
-            $them = "Cập nhật thành công";
-            include('danhsach.php');
+            die();
         }
+        
+        update_sodoan($idsd, $masv, $tgnop, $tgrut);
+        $list_sd = get_sodoan($batdau, $sotin1trang);
+        $them = "Cập nhật thành công";
+        include('danhsach.php');
         break;
     case 'delete':
         $id = filter_input(INPUT_POST, 'id', FILTER_VALIDATE_INT);
         delete_sodoan($id);
         break;
-    
 }
 
 include ('../footer.php');

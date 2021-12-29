@@ -42,18 +42,20 @@
                                             <td><?php echo $i ?></td>
                                             <td><?php echo $sd['masv']; ?></td>
                                             <td><?php echo $str = get_tensvsodoanById($sd['masv']); ?></td>
-                                            <td><?php echo date('d/m/Y',strtotime($sd['tgnop'])); ?></td>
-                                            <td><?php echo date('d/m/Y',strtotime($sd['tgrut'])); ?></td>
+                                            <td><?php echo date('d-m-Y', strtotime($sd['tgnop'])); ?></td>
                                             <td>
-                                                <form action="sua_sd.php" method="POST" id="update">
-                                                    
-                                                    <input type="hidden" name="id"
-                                                           value="<?php echo $sd['idsd']; ?>">
-                                                    <button class="btn btn-warning" type="submit">
-                                                        <i class="glyphicon glyphicon-edit"></i>
-                                                        <span>Sửa</span>
-                                                    </button>
-                                                </form>
+                                                <?php
+                                                    if($sd['tgrut'] == '0000-00-00')
+                                                        echo 'Chưa rút';
+                                                    else
+                                                        echo date('d-m-Y', strtotime($sd['tgrut'])); 
+                                                ?>
+                                            </td>
+                                            <td>
+                                                <a class="btn btn-warning" href="sua_sd.php?id=<?php echo $sd['idsd']; ?>">
+                                                    <i class="glyphicon glyphicon-edit"></i>
+                                                    <span>Sửa</span>
+                                                </a>
                                             </td>
                                             <td>
                                                 <form action="." method="POST" id="delete">

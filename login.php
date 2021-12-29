@@ -41,7 +41,7 @@
 
             <div class="registration">
                 Chưa có tài khoản?
-                <a class="" href="register.php">
+                <a class="" href="register.php" style="color: #428bca">
                     Đăng kí
                 </a>
             </div>

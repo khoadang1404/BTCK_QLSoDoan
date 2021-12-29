@@ -120,7 +120,7 @@ a:hover {
 .form-control {
     border: 1px solid #e2e2e4;
     box-shadow: none;
-    color: #c2c2c2;
+    color: #333;
 }
 
 
@@ -159,26 +159,26 @@ ul {
 }
 
 .btn-primary {
-    background-color: #1fb5ad;
-    border-color: #1fb5ad;
+    background-color: #428bca;
+    border-color: #428bca;
     color: #FFFFFF;
 }
 
 .btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open .dropdown-toggle.btn-primary {
-    background-color: #1ca59e;
-    border-color: #1ca59e;
+    background-color: #428bca;
+    border-color: #428bca;
     color: #FFFFFF;
 }
 
 .btn-success {
-    background-color: #95b75d;
-    border-color: #95b75d;
+    background-color: #428bca;
+    border-color: #428bca;
     color: #FFFFFF;
 }
 
 .btn-success:hover, .btn-success:focus, .btn-success:active, .btn-success.active, .open .dropdown-toggle.btn-success {
-    background-color: #88a755;
-    border-color: #88a755;
+    background-color: #428bca;
+    border-color: #428bca;
     color: #FFFFFF;
 }
 
@@ -356,7 +356,12 @@ ul {
 .table thead > tr > th, .table tbody > tr > th, .table tfoot > tr > th, .table thead > tr > td, .table tbody > tr > td, .table tfoot > tr > td {
     padding: 10px;
 }
-
+th {
+    text-align: center;
+}
+tr :first-child{
+    text-align: center;
+}
 /*pagination*/
 
 .pagination > li > a, .pagination > li > span {

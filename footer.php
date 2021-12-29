@@ -76,7 +76,7 @@
 </script>
 <script type="text/javascript">
     $(document).ready(function () {
-        $('#delete').submit(function () {
+        $('form').submit(function () {
             var id = document.forms["delete"]["id"].value;
             var x = confirm("Ban có muốn xóa sinh viên đã nộp sổ?" + "\n Mã sổ đoàn: "+id);
             if (x)

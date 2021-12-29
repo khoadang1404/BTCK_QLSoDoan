@@ -87,14 +87,14 @@ if (isset($_GET['logout'])) {
                                 </a>
                             </li>
                             <li>
-                                <a href="../tracuusinhvien/tracuu.php?page=1">
+                                <a href="../tracuusinhvien/index.php?page=1">
                                     <i class="fa fa-search"></i>
                                     <span>Tra cứu sinh viên</span>
                                 </a>
                             </li>
                             <li>
                                 <a href="../quanlysodoan/index.php?page=1">
-                                    <i class="fa fa-user"></i>
+                                    <i class="fa fa-book"></i>
                                     <span>Quản lý sổ đoàn</span>
                                 </a>
                             </li>

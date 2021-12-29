@@ -3,6 +3,7 @@ $title = "Tra cứu sinh viên";
 
 require('../model/database.php');
 require('../model/SinhVien.php');
+require('../model/sodoan.php');
 include '../header.php';
 
 if(isset($_GET['page']))

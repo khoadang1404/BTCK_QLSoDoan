@@ -11,12 +11,12 @@
                     <div class="panel-body">
 
 
-                        <form action="tracuu.php" method="get">
+                        <form action="index.php" method="get">
                             <div class="input-group m-bot15">
                                 <input type="text" name="action" value="find_sv" class="hide">
                                 <input type="text" name="findid" class="form-control" placeholder="Nhập mã sinh viên">
                                 <span class="input-group-btn">
-                                    <button class="btn btn-success" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+                                    <button class="btn btn-primary" type="submit"><i class="glyphicon glyphicon-search"></i></button>
                                 </span>
                             </div>
                         </form>
@@ -43,7 +43,7 @@
                                                 </a>
                                             </td>
                                             <td><?php echo $sv['lopSH']; ?></td>
-                                            <td><?php echo date('d/m/Y',strtotime($sv['ngaysinh'])); ?></td>
+                                            <td><?php echo date('d-m-Y',strtotime($sv['ngaysinh'])); ?></td>
                                             <?php $i = $i + 1; ?>
                                         </tr>
                                     <?php endforeach; ?>
@@ -54,14 +54,14 @@
                                 <ul> 
                                     <?php
                                     if ($_GET['page'] > 1) {
-                                        echo '<li class="prev disabled" ><a href="tracuu.php?page=' . ($_GET['page'] - 1) . '">← Prev</a></li>';
+                                        echo '<li class="prev disabled" ><a href="index.php?page=' . ($_GET['page'] - 1) . '">← Prev</a></li>';
                                     }
                                     for ($t = 1; $t <= $sotrang; $t++) {
-                                        echo '<li><a href="tracuu.php?page=' . $t . '">' . $t . '</a></li>';
+                                        echo '<li><a href="index.php?page=' . $t . '">' . $t . '</a></li>';
                                     }
                                     $page = $page + 1;
                                     if ($_GET['page'] < $sotrang) {
-                                        echo '<li class="next"><a href="tracuu.php?page=' . ($_GET['page'] + 1) . '">Next →"</a></li>';
+                                        echo '<li class="next"><a href="index.php?page=' . ($_GET['page'] + 1) . '">Next →"</a></li>';
                                     }
                                     ?>
                                 </ul>
