@@ -48,18 +48,7 @@
         $('#AlertBox').delay(1500).slideUp(500);
     });
 </script>
-<script type="text/javascript">
-    $(".sidebar-toggle-box").click(function () {
-        var isSomethingTrue = $("#sidebar").hasClass("hide-left-bar");
 
-        if (isSomethingTrue) {
-            $('#sidebar').removeClass('hide-left-bar');
-        } else {
-            $('#sidebar').addClass('hide-left-bar');
-        }
-    });
-
-</script>
 <script type="text/javascript">
     $(function () {
         $('#nav-accordion a.active').removeClass('active');
